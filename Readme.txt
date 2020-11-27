@@ -1,6 +1,6 @@
-This is only for Windows!
+This source is only for Windows (VM)!
 
-It use <Windows.h> you can only execute it with Wine on Linux
+It use <Windows.h> you can only execute (not build) it with Wine on Linux
 
 It need four Float values after start in the commandline (stdin)
 
