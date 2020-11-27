@@ -7,7 +7,7 @@ int windowBuilder(bool* windowclosed, bool* doexit) {
 	}
 
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(640, 480, "Pythagoras Calc", NULL, NULL);
+	window = glfwCreateWindow(640, 480, "Pythagoras Calc Visualisation", NULL, NULL);
 	if (!window)
 	{
 		std::cerr << "Teminate" << std::endl;
