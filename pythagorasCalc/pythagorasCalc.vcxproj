@@ -150,6 +150,7 @@
   <ItemGroup>
     <ClInclude Include="dataclass.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="helppages.h" />
     <ClInclude Include="pythago.h" />
     <ClInclude Include="visualwindow.h" />
   </ItemGroup>

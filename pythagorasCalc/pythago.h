@@ -1,4 +1,9 @@
 #pragma once
+#include <math.h>
+#ifndef dataclassi
+#include "dataclass.h"
+#endif
+
 double pythagoras(coordin a, coordin b) {
 	double ax{ (double)a.x };
 	double ay{ (double)a.y };

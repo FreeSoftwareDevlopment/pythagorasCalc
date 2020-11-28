@@ -1,4 +1,5 @@
 #pragma once
+#define dataclassi 0xFF
 class coordin {
 public:
 	float x{ 0.0f };

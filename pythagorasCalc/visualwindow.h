@@ -1,3 +1,6 @@
+#ifndef multi
+#define multi 0.01f
+#endif
 int windowBuilder(bool* windowclosed, bool* doexit) {
 	GLFWwindow* window;
 	if (!glfwInit()) {
@@ -32,18 +35,18 @@ int windowBuilder(bool* windowclosed, bool* doexit) {
 		if (currentrender.content) {
 			glColor3f(0.0f, 1.0f, 0.5f);
 			glBegin(GL_TRIANGLES);
-			glVertex2f(currentrender.a.x, currentrender.a.y);
-			glVertex2f(currentrender.b.x, currentrender.b.y);
-			glVertex2f(currentrender.a.x, currentrender.b.y);
+			glVertex2f(currentrender.a.x * multi, currentrender.a.y * multi);
+			glVertex2f(currentrender.b.x * multi, currentrender.b.y * multi);
+			glVertex2f(currentrender.a.x * multi, currentrender.b.y * multi);
 			glEnd();
 		}
 		else {
 			glColor3f(1.0f, 0.0f, 0.0f);
-			glBegin(GL_TRIANGLES);
-			glVertex2f(0.0f, 0.0f);
-			glVertex2f(4.0f, 4.0f);
-			glVertex2f(4.0f, 0.0f);
-			glVertex2f(0.0f, 4.0f);
+			glBegin(GL_QUADS);
+			glVertex2f(0.0f * multi, 0.0f * multi);
+			glVertex2f(4.0f * multi, 4.0f * multi);
+			glVertex2f(4.0f * multi, 0.0f * multi);
+			glVertex2f(0.0f * multi, 4.0f * multi);
 			glEnd();
 		}
 		/* Swap front and back buffers */
