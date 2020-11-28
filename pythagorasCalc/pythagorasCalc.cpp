@@ -13,7 +13,7 @@ float requestfloat(const char tosay[]) {
 }
 int main()
 {
-	std::cout << u8"Pythagoras Calc\n\u00a9 Sharkbyteprojects\nEnter Numbers smaller than 100.0!\nOn GITHUB: https://github.com/Sharkbyteprojects\nDiscord: https://discord.gg/z8nVJ4yXZj\n" << std::endl;
+	std::cout << u8"Pythagoras Calc\n\u00a9 Sharkbyteprojects\nEnter Numbers smaller than 100.0 (Bigger numbers can not complete displayed on the virsual window)!\nOn GITHUB: https://github.com/Sharkbyteprojects\nDiscord: https://discord.gg/z8nVJ4yXZj\n" << std::endl;
 	bool windowclosed{ false };
 	trasfer.content = false;
 	bool exit{ false };
