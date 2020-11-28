@@ -9,3 +9,4 @@
 integertrans trasfer;
 #include "visualwindow.h"
 #include "helppages.h"
+#include <string.h>

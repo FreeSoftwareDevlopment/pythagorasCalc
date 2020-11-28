@@ -19,3 +19,11 @@ void helppages(bool* windowclosed, bool* doexit) {
 	}
 	return;
 }
+
+void notifyer(bool types) {
+	std::string shs{ "" };
+	if (types) {
+		shs = " or Press SHIFT to write the data out";
+	}
+	std::cout << u8"Press \u0022a\u0022 or ALT to Enter new Data and press \u0022b\u0022 or ctrl to exit!" << shs << std::endl;
+}

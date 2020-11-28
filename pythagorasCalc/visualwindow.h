@@ -1,6 +1,9 @@
 #ifndef multi
 #define multi 0.01f
 #endif
+
+#include "renderbg.h"
+
 int windowBuilder(bool* windowclosed, bool* doexit) {
 	GLFWwindow* window;
 	if (!glfwInit()) {
@@ -26,6 +29,8 @@ int windowBuilder(bool* windowclosed, bool* doexit) {
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 		/* Render here */
+		makebackground();
+
 		if (trasfer.ids > currentrender.ids && trasfer.content) {
 			currentrender.ids = trasfer.ids;
 			currentrender.a = trasfer.a;
@@ -33,22 +38,14 @@ int windowBuilder(bool* windowclosed, bool* doexit) {
 			currentrender.content = true;
 		}
 		if (currentrender.content) {
-			glColor3f(0.0f, 1.0f, 0.5f);
+			glColor3f(0.0f, 1.0f, 0.0f);
 			glBegin(GL_TRIANGLES);
 			glVertex2f(currentrender.a.x * multi, currentrender.a.y * multi);
 			glVertex2f(currentrender.b.x * multi, currentrender.b.y * multi);
 			glVertex2f(currentrender.a.x * multi, currentrender.b.y * multi);
 			glEnd();
 		}
-		else {
-			glColor3f(1.0f, 0.0f, 0.0f);
-			glBegin(GL_QUADS);
-			glVertex2f(0.0f * multi, 0.0f * multi);
-			glVertex2f(4.0f * multi, 4.0f * multi);
-			glVertex2f(4.0f * multi, 0.0f * multi);
-			glVertex2f(0.0f * multi, 4.0f * multi);
-			glEnd();
-		}
+
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
 

@@ -13,7 +13,10 @@ float requestfloat(const char tosay[]) {
 }
 int main()
 {
-	std::cout << u8"Pythagoras Calc\n\u00a9 Sharkbyteprojects\nEnter Numbers smaller than 100.0 (Bigger numbers can not complete displayed on the virsual window)!\nOn GITHUB: https://github.com/Sharkbyteprojects\nDiscord: https://discord.gg/z8nVJ4yXZj\n" << std::endl;
+	const char* gidi{ "\nOn GITHUB : https://github.com/Sharkbyteprojects\nDiscord: https://discord.gg/z8nVJ4yXZj" };
+	std::cout << u8"Pythagoras Calc\n\u00a9 Sharkbyteprojects\nEnter Numbers smaller than 100.0 (Bigger numbers can not complete displayed on the virsual window)!"
+		<< gidi
+		<< "\nPress F1 to open the Source Page\nPress F3 to Open Discord\nPress F4 to Open Sharkbyteprojects GitHub Page\n" << std::endl;
 	bool windowclosed{ false };
 	trasfer.content = false;
 	bool exit{ false };
@@ -31,8 +34,10 @@ int main()
 		if (windowclosed) { break; }
 		trasfer.content = true;
 		trasfer.ids++;
-		std::cout << "Distance of the two Points: " << pythagoras(trasfer.a, trasfer.b) << " (Rounded to double)" << std::endl;
-		std::cout << u8"Press \u0022a\u0022 or ALT to Enter new Data and press \u0022b\u0022 or ctrl to exit!" << std::endl;
+		double distance = pythagoras(trasfer.a, trasfer.b);
+		std::cout << "Distance of the two Points: " << distance << " (Rounded to double)" << std::endl;
+		notifyer(true);
+		bool outwritecomplete{ false };
 		while (1) {
 			if (GetKeyState('A') & keystate || GetKeyState(VK_MENU) & keystate)
 			{
@@ -42,7 +47,28 @@ int main()
 				exit = true;
 				break;
 			}
-			else if (GetKeyState(VK_SHIFT) & keystate) {
+			else if (GetKeyState(VK_SHIFT) & keystate && !outwritecomplete) {
+				std::string filename;
+				std::cout << "Enter Filename: " << std::endl;
+				std::cin >> filename;
+				if (!std::cin.fail()) {
+					std::ofstream outfile(filename.c_str());
+					if (!outfile.fail()) {
+						outfile << u8"\u00a9 Sharkbyteprojects\nDistance:\t" << distance
+							<< "\nPoint 1:\t(" << trasfer.a.x << "|" << trasfer.a.y
+							<< ")\nPoint 2:\t(" << trasfer.b.x << "|" << trasfer.b.y << ")\n"
+							<< gidi << std::endl;
+						outwritecomplete = true;
+					}
+					else {
+						std::cerr << "Failed File writeing" << std::endl;
+					}
+					outfile.close();
+				}
+				else {
+					std::cerr << "Wrong format" << std::endl;
+				}
+				notifyer(false);
 			}
 		}
 	}
