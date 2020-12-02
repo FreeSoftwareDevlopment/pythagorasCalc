@@ -39,7 +39,7 @@ int main()
 		notifyer(true);
 		bool outwritecomplete{ false };
 		while (1) {
-			if (GetKeyState('A') & keystate || GetKeyState(VK_MENU) & keystate)
+			if (GetKeyState('A') & keystate || GetKeyState(VK_MENU) & keystate || windowclosed)
 			{
 				break;
 			}
